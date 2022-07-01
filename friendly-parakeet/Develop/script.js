@@ -150,7 +150,7 @@ var generatePassword = function () {
       finalPasswordContainer.push(randomCharacter);
     }
   }
-  //converting all finalPasswordcontainr objects to a string
+  //converting all finalPasswordcontainr objects to a string and displaying project 
   password = finalPasswordContainer.join("");
   console.log(" Your password is " + password);
   return password;

@@ -1,10 +1,10 @@
 // List Variables
 var length; // user password length select
 var lower; // user lowercase select
-var upper;// uppercase select
-var numeric;// number select
-var special;// special character select
-var selected; // Choice that the user selects
+var upper;// user uppercase select
+var numeric;// user number select
+var special;// user special character select
+var selected; // Choice/confitms that the user selects
 
 //Declaring arrays
 
@@ -17,6 +17,31 @@ numbers=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 //special characters
 specialCharacters= ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"]
 
+
+//Declaring Function to create password 
+var generatePassword = function() {
+  
+  // Declaration via window prompt of which variable is used to hold which user input via user input
+var lengthselectprompt= window.prompt("choose a length of at least 8 characters and no more than 128 characters")
+
+ //Converts string input ex "10" to number input ex 10
+ length = parseInt(lengthselectprompt);
+
+    //Security Check
+   if(length <8 || length >128 ) {
+    window.alert( "Try again. Number needs to be the correct length");
+  
+    generatePassword();
+    return      
+  }
+  else{ 
+    console.log("User has selected the right length")
+    lower=window.confirm("Do you want to use lower case letters")
+    upper=window.confirm("Do you want to use upper case letters")
+    numeric=window.confirm("Do you want to use numbers")
+    special=window.confirm("Do you want to use special characters")
+  }
+}
 
 
 

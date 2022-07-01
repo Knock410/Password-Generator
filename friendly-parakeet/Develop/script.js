@@ -8,7 +8,7 @@ var selected; // Choice that the user selects
 
 //Declaring arrays
 
-LowerAlphabet= []
+LowerAlphabet= []nn
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");

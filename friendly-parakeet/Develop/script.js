@@ -4,8 +4,8 @@ var lower; // user lowercase select
 var upper; // user uppercase select
 var numeric; // user number select
 var special; // user special character select
-var finalPassword; // Choice/confitms that the user selects
-
+finalPasswordContainer = []; // Choice/confitms that the user selects
+// var finalPassword;
 //Declaring arrays
 
 // Alphabet Lower case
@@ -116,11 +116,12 @@ var generatePassword = function () {
   length = parseInt(lengthselectprompt);
 
   //Security Check
-  if (length < 8 || length > 128) {
+  if (lengthselectprompt == "" || length < 8 || length > 128) {
     window.alert("Try again. Number needs to be the correct length");
 
     generatePassword();
     return;
+    //Confirming using inputs and adding inputs to universal array "userInputArray" and logging values as true or false
   } else {
     console.log("User has selected the right length");
     lower = window.confirm("Do you want to use lower case letters");
@@ -139,12 +140,20 @@ var generatePassword = function () {
     if (special === true) {
       userInputArray = userInputArray.concat(specialCharacters);
     }
-    console.log(userInputArray)
+    console.log(userInputArray);
 
-    for(var i=0;i< length; i++)
-    var finalPassword=userInputArray()
-    var randomCharacter=
+    //Using a for loops to match user input length with random objects into an array
+    for (var i = 0; i < length; i++) {
+      var randomCharacter =
+        userInputArray[Math.floor(Math.random() * userInputArray.length)];
+
+      finalPasswordContainer.push(randomCharacter);
+    }
   }
+  //converting all finalPasswordcontainr objects to a string
+  password = finalPasswordContainer.join("");
+  console.log(" Your password is " + password);
+  return password;
 };
 
 // Get references to the #generate element
